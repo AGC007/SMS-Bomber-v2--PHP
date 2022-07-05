@@ -1,6 +1,6 @@
 # SMS-Bomber-v2
 
-SMS Bomber [v2] By AGC007™ :
+SMS Bomber [v2] By AGC007™ -- PHP :
 
 -- Send SMS 
 
