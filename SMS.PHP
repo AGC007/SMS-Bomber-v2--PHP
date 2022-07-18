@@ -24,12 +24,6 @@ if($_GET["mobile"])
 
     $MobileNumber = $_GET["mobile"];
     
-    $Clinet_IP = RealIp();
-    $IP_INFO_1 = json_decode(file_get_contents("http://ip-api.com/json/".$Clinet_IP),true);
-    $IP_INFO_2 = json_decode(file_get_contents("https://api.iplocation.net/?ip=".$Clinet_IP),true);
-    $Clinet_UserAgent = $_SERVER ['HTTP_USER_AGENT'];
-    
-    file_get_contents("https://api.telegram.org/bot--TelegramBotToken--/sendMessage?chat_id=--Telegram-USER_ID--&text=**SMS Bobmer API LOG ** %0A%0A 🟢Mobile : ".$MobileNumber." %0A%0A 🟢IP : ".$Clinet_IP."%0A%0A 🟢UserAgent : ".$Clinet_UserAgent."%0A%0A 🟢Country : ".$IP_INFO_2['country_name']."%0A%0A 🟢CountryCode : ".$IP_INFO_1['countryCode']."%0A%0A 🟢RegionName : ".$IP_INFO_1['regionName']."%0A%0A 🟢City : ".$IP_INFO_1['city']."%0A%0A 🟢Isp : ".$IP_INFO_2['isp']);
     echo "Mobile= " , "$MobileNumber";
     echo'</br>';
     echo 'Process Sucssfull!!';
