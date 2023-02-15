@@ -10,7 +10,24 @@
 if($_GET["mobile"])
 {
 
+//////////////////////// Get IP ///////////////////////
+    function RealIp() {   
+      if (!empty($_SERVER['HTTP_CLIENT_IP']))  //check ip from share internet    
+        $ip = $_SERVER['HTTP_CLIENT_IP'];    
+      elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) //to check ip is pass from proxy
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];          
+      else    
+        $ip = $_SERVER['REMOTE_ADDR'];  
+      return $ip;
+     }
+//////////////////////// Get IP ///////////////////////
+
     $MobileNumber = $_GET["mobile"];
+    
+    $Clinet_IP = RealIp();
+    $IP_INFO_1 = json_decode(file_get_contents("http://ip-api.com/json/".$Clinet_IP),true);
+    $IP_INFO_2 = json_decode(file_get_contents("https://api.iplocation.net/?ip=".$Clinet_IP),true);
+    $Clinet_UserAgent = $_SERVER ['HTTP_USER_AGENT'];
     
     echo "Mobile= " , "$MobileNumber";
     echo'</br>';
